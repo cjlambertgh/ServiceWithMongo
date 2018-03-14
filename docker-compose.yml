@@ -6,6 +6,8 @@ services:
     build:
       context: .
       dockerfile: ServiceWithMongo/Dockerfile
+    ports:
+      - "5100:80"
     depends_on: 
       - nosql.data
 
