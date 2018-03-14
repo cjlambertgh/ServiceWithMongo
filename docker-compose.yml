@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  servicewithmongo:
+    image: servicewithmongo
+    build:
+      context: .
+      dockerfile: ServiceWithMongo/Dockerfile
