@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using ServiceWithMongo.Infrastructure.Repositories;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace ServiceWithMongo
@@ -29,6 +30,10 @@ namespace ServiceWithMongo
             {
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
+
+            services.Configure<PersonSettings>(Configuration);
+
+            services.AddTransient<IPersonRepository, PersonRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
