@@ -6,3 +6,10 @@ services:
     build:
       context: .
       dockerfile: ServiceWithMongo/Dockerfile
+    depends_on: 
+      - nosql.data
+
+  nosql.data:
+    image: mongo
+    ports:
+      - "27017:27017"
